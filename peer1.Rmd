@@ -1,0 +1,27 @@
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## October 27 2016
+
+```{r}
+library(leaflet)
+KTHSite <-  "<a href='https://www.kth.se/en/'>KTH</a>"
+KTHIcon <- makeIcon(
+  iconUrl = "https://project-sparks.eu/wp-content/uploads/2014/04/KTH_Logotyp_RGB_2013-300x300.jpg",
+  iconWidth = 30, iconHeight = 30,
+  iconAnchorX = 30/2, iconAnchorY = 16
+)
+
+KTHLatLong <- data.frame(
+  lat = c(59.349806),
+  lng = c(18.070665))
+
+KTHLatLong %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(icon = KTHIcon,popup = KTHSite)
+
+```
